@@ -1,7 +1,7 @@
 debian/tmp/usr/include/*
-debian/tmp/usr/lib/x86_64-linux-gnu/lib*.a
-debian/tmp/usr/lib/x86_64-linux-gnu/lib*.la
-debian/tmp/usr/lib/x86_64-linux-gnu/lib*.so
-debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig/*
+debian/tmp/usr/lib/*/lib*.a
+debian/tmp/usr/lib/*/lib*.la
+debian/tmp/usr/lib/*/lib*.so
+debian/tmp/usr/lib/*/pkgconfig/*
 debian/tmp/usr/sbin/*
 debian/tmp/usr/share/man/*

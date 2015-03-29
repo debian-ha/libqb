@@ -1,2 +1,2 @@
-debian/tmp/usr/lib/x86_64-linux-gnu/lib*.so.*
+debian/tmp/usr/lib/*/lib*.so.*
 debian/tmp/usr/share/doc/libqb/*
