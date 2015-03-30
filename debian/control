@@ -1,0 +1,48 @@
+Source: libqb
+Priority: extra
+Maintainer: Debian HA Maintainers <debian-ha-maintainers@lists.alioth.debian.org>
+Uploaders: Martin Loschwitz <madkiss@debian.org>, Richard B Winters <rik@mmogp.com>
+Build-Depends: debhelper (>= 9), autotools-dev, dh-autoreconf, pkg-config, check, doxygen, graphviz, libglib2.0-dev
+Standards-Version: 3.9.6
+Section: libs
+Homepage: http://github.com/clusterlabs/libqb/wiki
+Vcs-Git: https://github.com/debian-ha/libqb
+Vcs-Browser: http://github.com/debian-ha/libqb
+
+Package: libqb-dev
+Section: libdevel
+Architecture: any
+Depends: libqb0 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: high performance client server features library (devel files)
+ libqb provides a set of high performance client-server reusable features. It 
+ offers high performance logging, tracing, IPC and poll. Its initial features
+ were spun off the Corosync cluster communication suite to make the accessible
+ easier for other projects.
+ .
+ This package contains libqb's development files. You will need it if you plan
+ to develop applications using any of libqb's features.
+
+Package: libqb0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: high performance client server features library
+ libqb provides a set of high performance client-server reusable features. It 
+ offers high performance logging, tracing, IPC and poll. Its initial features
+ were spun off the Corosync cluster communication suite to make the accessible
+ easier for other projects.
+ . 
+ You'll need this package when installing the Pacemaker cluster manager (1.1.7
+ or higher) as it makes use of functions provided by this library.
+
+Package: libqb0-dbg
+Architecture: any
+Section: debug
+Depends:
+    libqb0 (= ${binary:Version}), ${misc:Depends}
+Description: debugging symbols for libqb0
+ libqb provides a set of high performance client-server reusable features. It 
+ offers high performance logging, tracing, IPC and poll. Its initial features
+ were spun off the Corosync cluster communication suite to make the accessible
+ easier for other projects.
+ .
+ This package contains the debugging symbols for giblib1.

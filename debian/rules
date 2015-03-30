@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#DH_VERBOSE = 1
+
+# see FEATURE AREAS in dpkg-buildflags(1)
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# libqb is linked against pthread, rt and dl, yet it uses none
+# of their symbols according to dpkg-buildflags, but this is
+# not true; see configure.ac for more information
+
+# main packaging script based on dh7 syntax
+%:
+	dh $@ --with autoreconf --fail-missing --link-doc=libqb0
+
+override_dh_auto_install:
+# Perform the install like normal	
+	dh_auto_install
+# This is here so we can ensure a properly set .la file
+# see: wiki.debian.org/ReleaseGoals/LAFileRemoval
+	for file in `find debian/tmp -name '*.la'`; do \
+		sed -i "/dependency_libs/ s/'.*'/''/" $$file ; \
+	done
+# In order to a avoid duplicate license warning, we delete 
+# COPYING
+	find ./debian/tmp -name "COPYING" -delete
+
+override_dh_autoreconf:
+	dh_autoreconf ./autogen.sh
+
+override_dh_auto_configure:
+# This was added in order to fix an issue running tests
+# when building with pbuilder.
+	mkdir -p `pwd`/dev/shm `pwd`/var/run
+	dh_auto_configure -- --localstatedir=`pwd`/var
+
+override_dh_strip:
+	dh_strip --dbg-package=libqb0-dbg

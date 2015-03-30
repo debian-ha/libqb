@@ -1,0 +1,23 @@
+Author: "Richard B Winters" <rik@mmogp.com>
+Description: Fix for build-aux/git-version-gen
+
+When using the release tarball to create the package, it lacks
+a .git directory and as such the necessary information for auto-
+generating the .tarball-version and .version files is absent,
+resulting in libqb0.pc to not have a proper version string set.
+
+In order to fix this .tarball-version should be created in the
+root directory, and it should be populated with the SOVERSION
+of the library (i.e. 0.17.1). This allows .version to be 
+generated and subsequently libqb0.pc.
+
+In this fashion the support for the version string is enabled
+through the use of only 1 stale file, instead of two. 
+
+In future packages I will utilize a git packaging repository
+so that the .git directory is available, by building off of the
+specific commit used for the release tag.
+--- /dev/null
++++ b/libqb-0.17.1/.tarball-version
+@@ -0,0 +1 @@
++0.17.1

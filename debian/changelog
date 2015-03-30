@@ -1,0 +1,109 @@
+libqb (0.17.1-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/patches: Dropped all 0.17.0 patches as they are not needed in new 
+    release
+  * debian/rules: Updated hardening implementation for debhelper 9
+  * debian/rules: Updated to clear dependency_libs field in libqb.la
+  * debian/rules: Updated to remove COPYING from debian/tmp after auto_install,
+    which resolves a lintian notice due to mutliple copies of license
+  * debian/rules: Updated to provide method for creating a debug package
+  * debian/control: Added libqb0-dbg to the package offering
+  * debian/control: Dropped hardening-wrapper, using hardening via debhelper
+    9; (see https://wiki.debian.org/Hardening)
+  * debian/control: Added glib2.0-dev to build-depends in order to make glib
+    tests available in this package
+  * debian/control: Bump Standards-Version
+      - No changes required
+  * debian/control: Updated Homepage
+  * debian/control: Added Vcs-Git and Vcs-Browser
+  * debian/compat: Bump to level 9
+  * debian/libqb0.symbols: Added for better cross-dist-version support
+  * debian/watch: Added watch for github releases
+  * debian/<pkg>.copyright: Added myself and Anibal to debian/* copyright
+  * debian/<pkg>.copyright: Updated date range for Debian-Ha Maintainers' and
+    Martin's entry
+  * debian/<pkg>.lintian-overrides: Added to prevent lintian flags as a side
+    effect of several of the manual pages not being properly formatted for
+    conversion by doxygen; hyphens, mispellings, and invalid whois entries
+  * debian/README.debian: Added, all maintainers please review
+
+ -- Richard B Winters <rik@mmogp.com>  Sun, 29 Mar 2015 21:39:16 -0400
+
+libqb (0.17.0-2) unstable; urgency=medium
+
+  * debian/patches/buildfix-dvossel-1.patch: Add an additional fix by dvossel
+    to ensure proper building of libqb
+
+ -- Martin Loschwitz <madkiss@debian.org>  Wed, 05 Mar 2014 14:44:10 +0000
+
+libqb (0.17.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/patches/fix_version_number.patch: Drop as its unnecessary now
+  * debian/patches/test_ring_buffer1.diff: Drop as this is included upstream
+  * debian/patches/buildfix-dvossel-1.patch: Avoid test-suite failure
+  * debian/control: Bump Standards-Version
+
+ -- Martin Loschwitz <madkiss@debian.org>  Fri, 21 Feb 2014 09:59:52 +0000
+
+libqb (0.16.0.real-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Do not overwrite memory during reading
+    Add test_ring_buffer1.diff
+    Patch by Dejan Latinovic
+    Closes: #731967
+  * Pass --localstatedir=`pwd`/var to configure to not fail the
+    tests when it's built with pbuilder
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Thu, 20 Feb 2014 07:21:30 +0000
+
+libqb (0.16.0.real-1) unstable; urgency=low
+
+  * New upload, this time with the "right" upstream .orig.tar.gz
+
+ -- Martin Loschwitz <madkiss@debian.org>  Fri, 02 Aug 2013 05:38:44 +0000
+
+libqb (0.16.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Martin Loschwitz <madkiss@debian.org>  Thu, 01 Aug 2013 10:57:28 +0000
+
+libqb (0.14.4-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Martin Loschwitz <madkiss@debian.org>  Wed, 20 Mar 2013 22:55:49 +0000
+
+libqb (0.14.3-2) unstable; urgency=low
+
+  * debian/control: Added "check" and "pkg-config" to Build-Depends.
+
+ -- Martin Loschwitz <madkiss@debian.org>  Tue, 13 Nov 2012 09:46:24 +0000
+
+libqb (0.14.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Martin Loschwitz <madkiss@debian.org>  Tue, 13 Nov 2012 09:38:41 +0000
+
+libqb (0.14.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Martin Loschwitz <madkiss@debian.org>  Tue, 09 Oct 2012 08:45:53 +0000
+
+libqb (0.11.1-2) unstable; urgency=low
+
+  * Added doxygen to Build-Depends to make sure documentation is
+    built properly 
+
+ -- Martin Loschwitz <madkiss@debian.org>  Tue, 03 Apr 2012 06:47:36 +0000
+
+libqb (0.11.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #666504)  
+
+ -- Martin Loschwitz <madkiss@debian.org>  Sun, 01 Apr 2012 16:47:49 +0000

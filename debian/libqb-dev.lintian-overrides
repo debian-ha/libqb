@@ -1,0 +1,5 @@
+# Some of the supplied manuals are not transcribed by doxygen correctly
+libqb-dev binary: hyphen-used-as-minus-sign
+libqb-dev binary: spelling-error-in-manpage
+libqb-dev binary: manpage-has-bad-whatis-entry
+
